@@ -1,0 +1,10 @@
+# Example: If this is in a GitHub Action or Husky config
+run: |
+  #!/bin/sh
+
+  if ! npx --no -- commitlint --edit "${1}"; then
+      echo "\n❌  Commit failed! Please use the Conventional Commits format:\n    <type>: <subject>\n"
+      echo "Examples:\n    feat: add user login page\n    fix: resolve crash on startup\n    chore: update dependencies"
+      echo "\nTypes:\n    feat     - New feature\n    fix      - Bug fix\n    docs     - Documentation only\n    style    - Formatting, missing semi-colons, etc\n    refactor - Code change that neither fixes a bug nor adds a feature\n    perf     - Code change that improves performance\n    test     - Adding missing tests\n    chore    - Maintainance\n"
+      exit 1
+  fi

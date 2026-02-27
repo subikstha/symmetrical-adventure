@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: payload-postgres
+    image: postgres:16-alpine
+    ports:
+      - '5437:5432'
+    environment:
+      POSTGRES_DB: payload_nextjs_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
